@@ -1,13 +1,17 @@
 @charset "utf-8";
 body{
     margin: 0;
-    text-align: center;
+    text-align: left;
     justify-content: center;
+    padding-left: 25%;
 }
-table th,td
+table th
 {
-  border: 1px solid black;
- 
+  border: 2px solid black;
+  font-family: 'Colonna MT';
+  text-align: left;
+  font-size: larger;
+  color: black;
 }
 table
 {
@@ -16,6 +20,13 @@ table
     table-layout: fixed; 
     width: 600px;
     border-collapse: collapse;
-    background-color:rgb(250, 249, 177);
+    background-color: lightseagreen;
     display:inline-table;
+    
+}
+table td{
+  border: 2px solid black;
+  text-align: center;
+  font-family: 'Modern No. 20';
+  color: white;
 }
