@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="registro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="responsable" type="tiporesponsable" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="factura" type="tipofactura" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="periodo" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:simpleType name="tiporesponsable" >
+      <xs:restriction base="xs:string">
+        <xs:pattern value="(\D)*"/>
+      </xs:restriction>
+ </xs:simpleType>
+ 
+<xs:group name="grupofacturas">
+ <xs:sequence>
+    <xs:element name="num">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer"></xs:restriction>
+      </xs:simpleType>
+    </xs:element>
+    <xs:element name="cliente">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="nombre" type="xs:string"/>
+          <xs:element name="documento">
+            <xs:complexType>
+              <xs:sequence>
+                 <xs:choice minOccurs="0" maxOccurs="1">
+                  <xs:element name="dui">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="tipodui">
+                            <xs:attribute name="vence" type="xs:date" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                  </xs:element>
+                  <xs:element name="pasaporte">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="tipostring">
+                            <xs:attribute name="pais" type="xs:string" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                  </xs:element>
+                 </xs:choice>
+              </xs:sequence>  
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="telefono">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="tipostring">
+                    <xs:attribute name="tipo" type="xs:string" use="optional"/>
+                    <xs:attribute name="cia" type="xs:string" use="optional"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+          </xs:element>
+          <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="codigo" type="xs:integer" use="required"/>
+        <xs:attribute name="sexo" type="tiposexo" use="required"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:element name="direccion">
+      <xs:complexType>
+        <xs:sequence>
+           <xs:choice minOccurs="0" maxOccurs="2">
+              <xs:element name="casa" type="xs:string"/>
+              <xs:element name="oficina" type="xs:string"/> 
+           </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="depto" type="tipodepto" use="optional"/>
+        <xs:attribute name="municipio" type="xs:string" use="optional"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:element name="lineafactura">
+      <xs:complexType>
+         <xs:sequence>
+             <xs:element name="codigo">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="tipoentero">
+                    <xs:attribute name="tipo" type="xs:string" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+             </xs:element>
+             <xs:element name="detalle" type="xs:string"/>
+             <xs:element name="cantidad" type="xs:integer"/>
+             <xs:element name="precio">
+              <xs:complexType>
+                 <xs:sequence>
+                     <xs:element name="moneda" type="xs:string"/>
+                     <xs:element name="valor" type="xs:float"/>
+                 </xs:sequence> 
+              </xs:complexType>
+             </xs:element>
+             <xs:element name="subtotal">
+                <xs:complexType>
+                 <xs:sequence>
+                     <xs:element name="moneda" type="xs:string"/>
+                     <xs:element name="valor" type="xs:float"/>
+                 </xs:sequence> 
+              </xs:complexType>
+             </xs:element>
+         </xs:sequence>
+         <xs:attribute name="factura" type="xs:integer" use="required"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:element name="total">
+       <xs:complexType>
+                 <xs:sequence>
+                     <xs:element name="moneda" type="xs:string"/>
+                     <xs:element name="valor" type="tipototal"/>
+                 </xs:sequence> 
+              </xs:complexType> 
+    </xs:element>
+  </xs:sequence>
+ </xs:group>
+ 
+ <xs:complexType name="tipofactura">  
+   <xs:sequence> 
+     <xs:group ref="grupofacturas"/>
+   </xs:sequence>
+   <xs:attribute name="tipo" type="tipodefactura" use="required"/>
+ </xs:complexType> 
+ 
+  <xs:simpleType name="tipodui">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="([0-9]{8}-[0-9])"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="tipostring">
+ <xs:restriction base="xs:string"/>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="tipoentero">
+ <xs:restriction base="xs:integer"/>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="tipodefactura">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="(credito|final)"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="tipodepto">
+   <xs:restriction base="xs:string">
+    <xs:enumeration value="San Salvador"/>
+    <xs:enumeration value="La Paz"/>
+    <xs:enumeration value="La Unión"/>
+    <xs:enumeration value="Cabañas"/>
+    <xs:enumeration value="Morazán"/>
+    <xs:enumeration value="San Miguel"/>
+    <xs:enumeration value="Sonsonate"/>
+    <xs:enumeration value="San Vicente"/>
+    <xs:enumeration value="Usulután"/>
+    <xs:enumeration value="Ahuachapán"/>
+    <xs:enumeration value="Chalatenango"/>
+    <xs:enumeration value="Santa Ana"/>
+    <xs:enumeration value="La Libertad"/>
+    <xs:enumeration value="Cuscatlán"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+<xs:simpleType name="tiposexo">
+ <xs:restriction base="xs:string">
+   <xs:enumeration value="masculino"/>
+   <xs:enumeration value="femenino"/>
+   <xs:enumeration value="otro"/>
+ </xs:restriction>
+ </xs:simpleType> 
+ 
+ <xs:simpleType name="tipototal">
+  <xs:restriction base="xs:decimal">
+    <xs:totalDigits value="8"/>
+    <xs:fractionDigits value="2"/>
+  </xs:restriction>
+ </xs:simpleType>
+</xs:schema>
