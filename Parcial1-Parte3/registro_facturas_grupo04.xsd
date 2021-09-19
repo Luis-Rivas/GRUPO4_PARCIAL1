@@ -1,0 +1,120 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name = "registros">
+<xs:complexType>
+<xs:sequence>
+<xs:element name = "registro">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:string" name = "responsable"/>
+<xs:element name = "factura"  maxOccurs="unbounded" minOccurs="0" >
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:short" name = "num"/>
+<xs:element name = "cliente">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:string" name = "nombre"/>
+<xs:element name = "documento">
+<xs:complexType>
+<xs:sequence>
+<xs:element  name = "dui">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:string">
+<xs:attribute type="xs:string" name="vence" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:element  name = "pasaporte">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:string">
+<xs:attribute type="xs:string" name="pais" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element  name = "telefono">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:int">
+<xs:attribute type="xs:string" name="tipo" use="optional"/>
+<xs:attribute type="xs:string" name="cia" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:element type = " xs:string" name = "email"/>
+ </xs:sequence>
+<xs:attribute type="xs:short" name="codigo" use="optional"/>
+<xs:attribute type="xs:string" name="sexo" use="optional"/>
+</xs:complexType>
+</xs:element>
+<xs:element name = "direccion">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:string" name = "casa"/>
+<xs:element type = " xs:string" name = "oficina"/>
+ </xs:sequence>
+<xs:attribute type="xs:string" name="depto" use="optional"/>
+<xs:attribute type="xs:string" name="municipio" use="optional"/>
+</xs:complexType>
+</xs:element>
+<xs:element name = "lineafactura">
+<xs:complexType>
+<xs:sequence>
+<xs:element  name = "codigo">
+<xs:complexType >
+<xs:simpleContent>
+<xs:extension base = "xs:short">
+<xs:attribute type="xs:string" name="tipo" use="optional"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:element type = " xs:string" name = "detalle"/>
+<xs:element type = " xs:byte" name = "cantidad"/>
+<xs:element name = "precio">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:string" name = "moneda"/>
+<xs:element type = " xs:float" name = "valor"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name = "subtotal">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:string" name = "moneda"/>
+<xs:element type = " xs:float" name = "valor"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+<xs:attribute type="xs:short" name="factura" use="optional"/>
+</xs:complexType>
+</xs:element>
+<xs:element name = "total">
+<xs:complexType>
+<xs:sequence>
+<xs:element type = " xs:string" name = "moneda"/>
+<xs:element type = " xs:float" name = "valor"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+<xs:attribute type="xs:string" name="tipo" use="optional"/>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+<xs:attribute type="xs:string" name="periodo"/>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
