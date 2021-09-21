@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 <!-- grupo 04  -->
 <registro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="registrofacturasgrupo04.xsd" periodo="2012-03">
-	<responsable>Lic. Inocencio Pérez</responsable>
+	<responsable>Lic. Inocencio PÃ©rez</responsable>
 	<factura tipo="final">
 		<num>564</num>
 		<cliente codigo="2617" sexo="femenino">
-			<nombre>María Vélez</nombre>
+			<nombre>MarÃ­a VÃ©lez</nombre>
 			<documento>
 				<dui vence="2018-03-03">02349867-9</dui>
 			</documento>
@@ -36,7 +36,7 @@
 	<factura tipo="credito">
 		<num>570</num>
 		<cliente codigo="5032" sexo="femenino">
-			<nombre>Julia Pérez</nombre>
+			<nombre>Julia PÃ©rez</nombre>
 			<documento>
 				<pasaporte pais="USA">A98672340</pasaporte>
 			</documento>
@@ -79,7 +79,7 @@
 		</direccion>
 		<lineafactura factura="575">
 			<codigo tipo="accesorio_pc">247</codigo>
-			<detalle>Mouse inalámbrico</detalle>
+			<detalle>Mouse inalÃ¡mbrico</detalle>
 			<cantidad>5</cantidad>
 			<precio>
 				<moneda>$</moneda>
@@ -98,7 +98,7 @@
 	<factura tipo="final">
 		<num>590</num>
 		<cliente codigo="617" sexo="masculino">
-			<nombre>Juan Pérez</nombre>
+			<nombre>Juan PÃ©rez</nombre>
 			<documento>
 				<pasaporte pais="SLV">A40298367</pasaporte>
 			</documento>
@@ -172,7 +172,7 @@
 		</direccion>
 		<lineafactura factura="575">
 			<codigo tipo="accesorio_pc">247</codigo>
-			<detalle>Mouse inalámbrico</detalle>
+			<detalle>Mouse inalÃ¡mbrico</detalle>
 			<cantidad>10</cantidad>
 			<precio>
 				<moneda>$</moneda>
@@ -222,7 +222,7 @@
 	<factura tipo="final">
 		<num>566</num>
 		<cliente codigo="2619" sexo="femenino">
-			<nombre>Gabriela Goméz</nombre>
+			<nombre>Gabriela GomÃ©z</nombre>
 			<documento>
 				<dui vence="2021-12-20">02335867-9</dui>
 			</documento>
@@ -260,12 +260,12 @@
 			<telefono tipo="celular" cia="claro">78351526</telefono>
 			<email>Mgutierrez2000@sica.com</email>
 		</cliente>
-		<direccion depto="Cuscatlán" municipio="Antiguo Cuscatlan">
-			<oficina>Séptima Av. Sur</oficina>
+		<direccion depto="CuscatlÃ¡n" municipio="Antiguo Cuscatlan">
+			<oficina>SÃ©ptima Av. Sur</oficina>
 		</direccion>
 		<lineafactura factura="585">
 			<codigo tipo="accesorio_pc">796</codigo>
-			<detalle>Webcam de ultima generación 4k</detalle>
+			<detalle>Webcam de ultima generaciÃ³n 4k</detalle>
 			<cantidad>1</cantidad>
 			<precio>
 				<moneda>$</moneda>
@@ -291,7 +291,7 @@
 			<telefono tipo="celular" cia="claro">73569825</telefono>
 			<email>AAguilar@hotmail.com</email>
 		</cliente>
-		<direccion depto="Ahuachapán" municipio="Ahuachapán">
+		<direccion depto="AhuachapÃ¡n" municipio="AhuachapÃ¡n">
 			<oficina>Calle principal edificio A</oficina>
 		</direccion>
 		<lineafactura factura="592">

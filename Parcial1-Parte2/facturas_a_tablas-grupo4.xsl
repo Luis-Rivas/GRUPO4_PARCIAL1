@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Grupo04-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="5.0" encoding="UTF-8" indent="yes" />
     
   <xsl:template match="/">
-    <xsl:processing-instruction name="xml-stylesheet">href="registro_facturas_grupo4.css" type="text/css"</xsl:processing-instruction>
+     <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
     <xsl:call-template name="nodo_raiz"/>
   </xsl:template>
   
@@ -17,7 +18,7 @@
         <title>
            Registro de facturas
         </title>        	
-        <link rel="stylesheet" href="registro_facturas_grupo4.css"></link>
+        <link rel="stylesheet" href="registro_facturas_grupo4.css"/>
       </head>
 	  <body>
             <xsl:apply-templates select="/registro/factura" />
